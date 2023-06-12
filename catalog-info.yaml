@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: "quay-integration-8"
+  annotations:
+    argocd/app-name: quay-integration-8-dev
+    backstage.io/kubernetes-id: quay-integration-8
+    backstage.io/kubernetes-namespace: quay-integration-8-dev
+    janus-idp.io/tekton-enabled : 'true'
+    github.com/project-slug: janus-demo-video/quay-integration-8
+    quay.io/repository-slug: "janus-demo-video/quay-integration-8"
+    backstage.io/techdocs-ref: dir:.
+  tags:
+    - java
+    - quarkus
+  links:
+    - url: https://devspaces.apps.cluster-hppnd.hppnd.sandbox2560.opentlc.com/#https://github.com/janus-demo-video/quay-integration-8?che-editor=che-incubator/che-code/insiders&devfilePath=.devfile-vscode.yaml
+      title: OpenShift Dev Spaces (VS Code)
+      icon: web
+    - url: https://devspaces.apps.cluster-hppnd.hppnd.sandbox2560.opentlc.com/#https://github.com/janus-demo-video/quay-integration-8?che-editor=che-incubator/che-idea/latest&devfilePath=.devfile-intellij.yaml
+      title: OpenShift Dev Spaces (JetBrains IntelliJ)
+      icon: web
+spec:
+  type: service
+  lifecycle: production
+  owner: "group:default/m"
+  providesApis:
+    - "quay-integration-8"
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: "quay-integration-8"
+spec:
+  type: openapi
+  lifecycle: production
+  owner: "group:default/m"
+  definition:
+    $text: ./openapi.yaml
